@@ -12,7 +12,7 @@
 	<artifactId>web_voting_app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>web_voting_app</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Web Voting application project built using Spring Boot</description>
 	<properties>
 		<java.version>21</java.version>
 	</properties>
