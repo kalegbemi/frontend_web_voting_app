@@ -1,6 +1,5 @@
 package com.capstone_project.web_voting_app.service;
 
-import com.capstone_project.web_voting_app.dto.ElectionPageableResponse;
 import com.capstone_project.web_voting_app.dto.ElectionRequest;
 import com.capstone_project.web_voting_app.dto.HttpResponse;
 import com.capstone_project.web_voting_app.enom.Status;
@@ -8,9 +7,6 @@ import com.capstone_project.web_voting_app.exception.ElectionNotFoundException;
 import com.capstone_project.web_voting_app.model.Election;
 import com.capstone_project.web_voting_app.repository.ElectionRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -48,7 +44,7 @@ public class ElectionService {
         return ResponseEntity.ok(election);
     }
 
-    public ResponseEntity<ElectionPageableResponse> findAllElection(int pageNo, int pageSize) {
+    /*public ResponseEntity<ElectionPageableResponse> findAllElection(int pageNo, int pageSize) {
         Pageable pageable = PageRequest.of(pageNo, pageSize);
         Page<Election> electionPage = electionRepo.findAll(pageable);
         List<Election> electionList = electionPage.getContent();
@@ -63,6 +59,11 @@ public class ElectionService {
                 .build();
 
         return ResponseEntity.ok(EPR);
+    }*/
+    public List<Election> findAllElection() {
+       List<Election> elections = electionRepo.findAll();
+       return elections;
+
     }
 
     public ResponseEntity<Election> updateElectionById(Long id, ElectionRequest request) {
