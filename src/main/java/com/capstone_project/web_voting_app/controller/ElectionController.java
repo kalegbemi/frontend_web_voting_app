@@ -1,6 +1,5 @@
 package com.capstone_project.web_voting_app.controller;
 
-import com.capstone_project.web_voting_app.dto.ElectionPageableResponse;
 import com.capstone_project.web_voting_app.dto.ElectionRequest;
 import com.capstone_project.web_voting_app.dto.HttpResponse;
 import com.capstone_project.web_voting_app.enom.Status;
@@ -11,8 +10,8 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
-import java.net.URISyntaxException;
 import java.util.List;
 
 @RestController
@@ -26,12 +25,19 @@ public class ElectionController {
         private final ElectionService electionService;
 
     @GetMapping("/all")
+    public ModelAndView getAllElections(){
+        ModelAndView modelAndView = new ModelAndView("elections");
+        List<Election> electionList = electionService.findAllElection();
+        modelAndView.addObject("elections",electionList);
+        return modelAndView;
+    }
+    /*@GetMapping("/all")
     public ResponseEntity<ElectionPageableResponse> getAllElections(
             @RequestParam( value = "pageNo",defaultValue = "0",required = false) int pageNo,
             @RequestParam(value = "pageSize", defaultValue = "5",required = false) int pageSize
     ){
         return electionService.findAllElection(pageNo, pageSize);
-    }
+    }*/
         @GetMapping("/getById")
         public ResponseEntity<String> findById(@RequestParam("id") Long id){
             return electionService.findElectionById(id);
