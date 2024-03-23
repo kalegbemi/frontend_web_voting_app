@@ -8,21 +8,7 @@
 <div class="content">
 
     <h1>Cast a Vote</h1>
-    </form>
-    <form th:action="@{/save-student}" th:object="${student}" method="post">
-        <input type="text" th:field="*{voter}" placeholder="voter id" name="firstName" id="firstName"
-               class="form-control mb-4 col-md-4">
-        <input type="text" th:field="*{lastName}" placeholder="Last Name" name="lastName" id="lastName"
-               class="form-control mb-4">
-        <input type="text" th:field="*{email}" placeholder="Email Address" name="email" id="email" class="form-control">
-        <input type="date" th:field="*{dateOfBirth}" placeholder="Date Of Birth" name="dateOfBirth" id="dateOfBirth"
-               class="form-control mb-4">
-        <input type="text" th:field="*{phoneNumber}" placeholder="0800 -345 - 5980" name="phoneNumber" id="phoneNumber"
-               class="form-control mb-4">
-        <input type="text" th:field="*{address}" placeholder="Address" name="address" id="address" class="form-control mb-4">
 
-        <button type="submit" class="btn btn-success btn-large">Add Student</button>
-    </form>
 </div>
 
 </body>
