@@ -29,11 +29,10 @@ import java.util.List;
         private final AuthenticationManager authenticationManager;
 
         @CacheEvict(value = "allAdmins", allEntries = true)
-        public Admin register(AdminRegisterRequest request){
-            Admin admin = new Admin();
-            admin.setEmail(request.getEmail());
-            admin.setPassword(passwordEncoder.encode(request.getPassword()));
-            admin.setFullName(request.getFullName());
+        public Admin registerAdmin (Admin admin) {
+            admin.setEmail(admin.getEmail());
+            admin.setPassword(passwordEncoder.encode(admin.getPassword()));
+            admin.setFullName(admin.getFullName());
             admin.setRole(Role.ADMIN);
             adminRepository.save(admin);
             String jwtToken = jwtService.generateToken(admin);

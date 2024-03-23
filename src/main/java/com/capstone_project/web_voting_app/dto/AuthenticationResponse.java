@@ -9,4 +9,8 @@ import lombok.Data;
     @Data
     public class AuthenticationResponse {
         private String token;
+
+        public boolean isSuccess() {
+            return true;
+        }
 }

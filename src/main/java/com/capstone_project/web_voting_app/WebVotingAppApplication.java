@@ -14,24 +14,24 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableCaching
 public class WebVotingAppApplication {
 
-private Boolean hasRun = true;
-    @Bean
+//private Boolean hasRun = true;
+   // @Bean
 
-    CommandLineRunner commandLineRunner(AdminService adminService){
-        return args -> {
-            if (!hasRun) {
-            AdminRegisterRequest adminRegisterRequest = AdminRegisterRequest.builder()
-                    .email("yusuf@yahoo.com")
-                    .fullName("Abiodun George")
-                    .password("Abiodun231@")
-                    .build();
-
-                adminService.register(adminRegisterRequest);
-                hasRun = true;
-            }
-        };
-
-    }
+//    CommandLineRunner commandLineRunner(AdminService adminService){
+//        return args -> {
+//            if (!hasRun) {
+//            AdminRegisterRequest adminRegisterRequest = AdminRegisterRequest.builder()
+//                    .email("yusuf@yahoo.com")
+//                    .fullName("Abiodun George")
+//                    .password("Abiodun231@")
+//                    .build();
+//
+//                adminService.registerAdmin(adminRegisterRequest);
+//                hasRun = true;
+//            }
+//        };
+//
+//    }
 
 
     public static void main(String[] args) {

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <h1> Add New Admin </h1>
+    <form th:action="@{/api/v1/admin/register-admin}" th:object="${admin}" method="post">
+        <label for="fullName"></label><input type="text" th:field="*{fullName}" placeholder="FullName" name="fullName" id="fullName"
+                                             class="form-control mb-4 col-md-4">
+        <label for="email"></label><input type="text" th:field="*{email}" placeholder="Email Address" name="email" id="email" class="form-control mb-4">
+        <label for="password"></label><input type="password" th:field="*{password}" placeholder="Password" name="password" id="password"
+                                             class="form-control mb-4 col-md-4">
+        <label for="role"></label><input type="text" th:field="*{role}" placeholder="Role" name="role" id="role"
+                                         class="form-control mb-4 col-md-4">
+        <button type ="submit" class="btn btn-success btn-large">Register Admin </button>
+        <input type ="hidden" th:field="*{id}">
+    </form>
+
+
+</div>
+</body>
+</html>
