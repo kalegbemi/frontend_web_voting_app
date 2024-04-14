@@ -11,20 +11,22 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
-@RestController
-    @RequestMapping("api/v1/admin")
+@Controller
+@RequestMapping("api/v1/admin")
+
     public class AdminController {
 
     @Autowired
     public AdminService adminService;
 
-    @SecurityRequirement(name = "bearer auth")
+   // @SecurityRequirement(name = "bearer auth")
     @PostMapping("/register-admin")
     public ModelAndView registerAdmin(@ModelAttribute Admin admin) {
         adminService.registerAdmin(admin);
@@ -46,7 +48,7 @@ import java.util.List;
         }
     }
 
-    @SecurityRequirement(name = "bearer auth")
+    //@SecurityRequirement(name = "bearer auth")
     @GetMapping("/add-admin")
     public ModelAndView registerAdmin() {
         ModelAndView modelAndView = new ModelAndView("add-admin");
@@ -55,7 +57,7 @@ import java.util.List;
         return modelAndView;
     }
 
-    @SecurityRequirement(name = "bearer auth")
+    //@SecurityRequirement(name = "bearer auth")
     @GetMapping(value ={"/admin-list", ""})
     public ModelAndView adminList() {
         ModelAndView modelAndView = new ModelAndView("admin-list");
@@ -64,14 +66,14 @@ import java.util.List;
         return modelAndView;
     }
 
-    @SecurityRequirement(name = "bearer auth")
+    //@SecurityRequirement(name = "bearer auth")
     @GetMapping("/update-admin/{id}")
     public String updateAdmin(@PathVariable(value = "id") int id, Model model) {
         Admin admin = adminService.getAdminById(id);
         model.addAttribute("admin", admin);
         return "update";
     }
-    @SecurityRequirement(name = "bearer auth")
+    //@SecurityRequirement(name = "bearer auth")
     @GetMapping("/delete-admin/{id}")
     public ModelAndView deleteAdmin(@PathVariable(value = "id")  int id) {
         adminService.deleteAdmin(id);
